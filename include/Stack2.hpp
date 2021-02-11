@@ -55,6 +55,11 @@ class Stack2
 
   Stack2(){pHead = nullptr;}
   Stack2(const Stack2&) = delete;
+  ~Stack2(){
+    while (pHead){
+      pop();
+    }
+  }
   Stack2 operator=(const Stack2&) = delete;
 
  private:

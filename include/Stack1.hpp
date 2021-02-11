@@ -38,7 +38,7 @@ class Stack1
     if (!pHead){
       pHead = new Node<T>(value);
     } else {
-      pHead = new Node<T>(value, std::move(pHead));
+      pHead = new Node<T>(value, pHead);
     }
   };
   void pop(){
@@ -52,6 +52,11 @@ class Stack1
 
   Stack1(){pHead = nullptr;}
   Stack1(const Stack1&) = delete;
+  ~Stack1(){
+    while(pHead){
+      pop();
+    }
+  }
   Stack1 operator=(const Stack1&) = delete;
 
  private:

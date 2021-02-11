@@ -1,7 +1,6 @@
 // Created by alesandr on 11.02.2021.
 
 #include <gtest/gtest.h>
-
 #include <Stack2.hpp>
 
 TEST(Stack2, correct_primitive) {

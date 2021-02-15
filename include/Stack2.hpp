@@ -11,8 +11,8 @@ class Node
 {
  public:
   Node(T data_ = T(), Node<T> *pPast_ = nullptr) {
-    this->data = data_;
-    this->pPast = pPast_;
+    data = data_;
+    pPast = pPast_;
   }
 
   const T& get_data(){return data;}
@@ -42,9 +42,7 @@ class Stack2
       pHead = new Node<T>(std::forward<T>(value), std::forward<Node<T>*>(pHead));
     }
   };
-  const T& head() const{
-    return pHead->get_data();
-  };
+  const T& head() const{return pHead->get_data();};
   T pop(){
     Node<T> *pTemp = pHead->get_pointer_past();
     T out = pHead->get_data();
@@ -55,12 +53,12 @@ class Stack2
 
   Stack2(){pHead = nullptr;}
   Stack2(const Stack2&) = delete;
+  Stack2 operator=(const Stack2&) = delete;
   ~Stack2(){
     while (pHead){
       pop();
     }
   }
-  Stack2 operator=(const Stack2&) = delete;
 
  private:
   Node<T> *pHead;

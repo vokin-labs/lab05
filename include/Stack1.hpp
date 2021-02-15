@@ -11,8 +11,8 @@ class Node
   {
  public:
     Node(T data_ = T(), Node<T> *pPast_ = nullptr) {
-      this->data = data_;
-      this->pPast = pPast_;
+      data = data_;
+      pPast = pPast_;
     }
 
     const T& get_data(){return data;}
@@ -46,18 +46,16 @@ class Stack1
     delete pHead;
     pHead = pTemp;
   };
-  const T& head() const{
-      return pHead->get_data();
-  };
+  const T& head() const{return pHead->get_data();};
 
   Stack1(){pHead = nullptr;}
   Stack1(const Stack1&) = delete;
+  Stack1 operator=(const Stack1&) = delete;
   ~Stack1(){
     while(pHead){
       pop();
     }
   }
-  Stack1 operator=(const Stack1&) = delete;
 
  private:
   Node<T> *pHead;
